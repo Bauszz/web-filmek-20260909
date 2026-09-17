@@ -99,7 +99,12 @@ for (let i = 0; i < filmek.length; i++) {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
-    cell4.innerHTML = filmek[i].rating
+    let ratingstars = ''
+    for (let j = 0; j < filmek[i].rating; j++) {
+        ratingstars += '⭐'
+        
+    }
+    cell4.innerHTML = ratingstars
     cell3.innerHTML = filmek[i].genre
     cell2.innerHTML = filmek[i].year
     cell1.innerHTML = filmek[i].title
