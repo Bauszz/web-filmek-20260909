@@ -1,3 +1,4 @@
+const Table = document.getElementById("table")
 const filmek = [
 {
     "title": "Ratatouille",
@@ -48,3 +49,16 @@ const filmek = [
     "rating": 4
   }
 ];
+
+for (let i = 0; i < filmek.length; i++) {
+    console.log(filmek[i])
+    var row = Table.insertRow(i+1)
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
+    cell4.innerHTML = filmek[i].rating
+    cell3.innerHTML = filmek[i].genre
+    cell2.innerHTML = filmek[i].year
+    cell1.innerHTML = filmek[i].title
+}
