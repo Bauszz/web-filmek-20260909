@@ -1,4 +1,11 @@
 const Table = document.getElementById("table")
+const Titleadd = document.getElementById("title")
+const Yearadd = document.getElementById("year")
+const Genreadd = document.getElementById("genre")
+const Ratingadd = document.getElementById("rating")
+const AddButton = document.getElementById("addButton").addEventListener("click", addRow)
+let rowcount = 1
+
 const filmek = [
   {
     "title": "Ratatouille",
@@ -92,14 +99,51 @@ const filmek = [
   }
 ];
 
-for (let i = 0; i < filmek.length; i++) {
-    console.log(filmek[i])
-    var row = Table.insertRow(i+1)
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
+
+function addRow()
+{
+  if (Titleadd.value == '' || Yearadd.value == '' || Genreadd.value == '' || Ratingadd.value == '') {
+    alert("Please fill in all fields.");
+    return;
+  }
+  let row = Table.insertRow(rowcount)
+  cell1 = row.insertCell(0);
+  cell2 = row.insertCell(1);
+  cell3 = row.insertCell(2);
+  cell4 = row.insertCell(3);
+
+
     let ratingstars = ''
+
+    for (let j = 0; j < Ratingadd.value; j++) {
+        ratingstars += '⭐'
+        
+    }
+  cell4.innerHTML = ratingstars
+  cell3.innerHTML = Genreadd.value
+  cell2.innerHTML = Yearadd.value
+  cell1.innerHTML = Titleadd.value
+  if (Ratingadd.value <= 2) {
+        row.classList.add("low-rating")
+    }
+  Genreadd.value = ''
+  Yearadd.value = ''
+  Titleadd.value = ''
+  Ratingadd.value = ''
+  rowcount++
+}
+
+for (let i = 0; i < filmek.length; i++) {
+
+    let row = Table.insertRow(i+1)
+    rowcount++
+    let cell1 = row.insertCell(0);
+    let cell2 = row.insertCell(1);
+    let cell3 = row.insertCell(2);
+    let cell4 = row.insertCell(3);
+
+    let ratingstars = ''
+
     for (let j = 0; j < filmek[i].rating; j++) {
         ratingstars += '⭐'
         
