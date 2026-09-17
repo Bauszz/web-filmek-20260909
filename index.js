@@ -1,6 +1,6 @@
 const Table = document.getElementById("table")
 const filmek = [
-{
+  {
     "title": "Ratatouille",
     "year": 2007,
     "genre": "Animation",
@@ -47,6 +47,48 @@ const filmek = [
     "year": 2017,
     "genre": "Animation",
     "rating": 4
+  },
+  {
+    "title": "Spider-Man: Into the Spider-Verse",
+    "year": 2018,
+    "genre": "Animation",
+    "rating": 3
+  },
+  {
+    "title": "Joker",
+    "year": 2019,
+    "genre": "Drama",
+    "rating": 4
+  },
+  {
+    "title": "Parasite",
+    "year": 2019,
+    "genre": "Thriller",
+    "rating": 4
+  },
+  {
+    "title": "Encanto",
+    "year": 2021,
+    "genre": "Animation",
+    "rating": 2
+  },
+  {
+    "title": "Everything Everywhere All at Once",
+    "year": 2022,
+    "genre": "Action",
+    "rating": 3
+  },
+  {
+    "title": "The Super Mario Bros. Movie",
+    "year": 2023,
+    "genre": "Animation",
+    "rating": 2
+  },
+  {
+    "title": "Inside Out 2",
+    "year": 2024,
+    "genre": "Animation",
+    "rating": 5
   }
 ];
 
@@ -61,4 +103,7 @@ for (let i = 0; i < filmek.length; i++) {
     cell3.innerHTML = filmek[i].genre
     cell2.innerHTML = filmek[i].year
     cell1.innerHTML = filmek[i].title
+    if (filmek[i].rating <= 2) {
+        row.classList.add("low-rating")
+    }
 }
