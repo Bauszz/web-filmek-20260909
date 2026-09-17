@@ -123,6 +123,12 @@ function addRow()
   cell3.innerHTML = Genreadd.value
   cell2.innerHTML = Yearadd.value
   cell1.innerHTML = Titleadd.value
+  filmek.push({
+    "title": Titleadd.value,
+    "year": Yearadd.value,
+    "genre": Genreadd.value,
+    "rating": Ratingadd.value
+  })
   if (Ratingadd.value <= 2) {
         row.classList.add("low-rating")
     }
